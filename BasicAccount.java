@@ -1,18 +1,19 @@
 package com.maddy;
 
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class BasicAccount {
-	
+
 	//The following class will allow the user to create his own basic bank account.
-	
+
 	private String name;
 	private String surname;
 	private String email;
 	private Address address;
 	private long phoneNumber;
-	
-	
+
+
 	// getters and setters
 
 	public BasicAccount() {
@@ -59,21 +60,39 @@ public class BasicAccount {
 		this.phoneNumber = phoneNumber;
 	}
 	
-	public boolean validateEmail(String email) {
+	// method to validate email address. Must be in format word1@word.com
+	public boolean isValidEmail(String email) {
 		
-		String pattern = "[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.(com|net)";
-		
-		if(email.equals(pattern)) {
+		String pattern = "[\\w]+@[\\w]+\\.[a-z]{2,6}$";
+
+
+		if(email.matches(pattern)) {
 			return true;
-		}else {
-			System.out.println("The email that you have entered is not valid");
+		} else {
+			System.out.println("Invalid email");
+			return false;
+		}
+
+	}
+	
+	// method to validate phone number. Must have 9 digits
+	public boolean isValidNumber(String phoneNumber) {
+		
+		String regex = "[0-9]{9}";
+		
+		if(phoneNumber.matches(regex)) {
+			System.out.println("Valid phone number");
+			return true;
+		} else {
+			System.out.println("Invalid phone number");
 			return false;
 		}
 		
 		
+		
 	}
-	
-	
+
+
 	
 	
 	
