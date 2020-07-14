@@ -3,14 +3,32 @@ package com.maddy;
 import java.util.Scanner;
 
 public class Tester {
-
+	
 	public static void main(String[] args) {
 		
-		Menu obj = new Menu("Jonathan", "Witty");		
-		obj.displayMenu();
+		Scanner scan = new Scanner(System.in);
+		BasicAccount acc = new BasicAccount("Maddy", "Robinson");		
+		String pNumber = "744064239";
+		acc.isValidNumber(pNumber);
 		
-//		Scanner scan = new Scanner(System.in);
-//		int option = scan.nextLine().charAt(0);
+		String address = "maddy@gmail.com";
+		acc.isValidEmail(address);
+		
+		try {
+			
+			if(acc.isValidEmail(address)  == true && acc.isValidNumber(pNumber) == true) {
+				System.out.println("Congratulations, you have successfully created your basic current account!");
+			} else {
+				System.out.println("Something went wrong, please try again");
+			}
+			
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		
+		Menu menu = new Menu("Maddy", "Robinson");
+		menu.displayMenu();
+		
 		
 
 	}
