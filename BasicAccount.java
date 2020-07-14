@@ -10,15 +10,13 @@ public class BasicAccount {
 	private String name;
 	private String surname;
 	private String email;
-	private Address address;
 	private long phoneNumber;
 
-
-	// getters and setters
-
-	public BasicAccount() {
-		// TODO Auto-generated constructor stub
+	public BasicAccount(String name, String surname) {
+		this.name = name;
+		this.surname = surname;	
 	}
+	// getters and setters
 
 	public String getName() {
 		return name;
@@ -44,13 +42,6 @@ public class BasicAccount {
 		this.email = email;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 
 	public long getPhoneNumber() {
 		return phoneNumber;
@@ -69,7 +60,7 @@ public class BasicAccount {
 		if(email.matches(pattern)) {
 			return true;
 		} else {
-			System.out.println("Invalid email");
+			System.out.println("Please enter a valid email");
 			return false;
 		}
 
@@ -81,10 +72,9 @@ public class BasicAccount {
 		String regex = "[0-9]{9}";
 		
 		if(phoneNumber.matches(regex)) {
-			System.out.println("Valid phone number");
 			return true;
 		} else {
-			System.out.println("Invalid phone number");
+			System.out.println("Please enter a valid telephone number");
 			return false;
 		}
 		
@@ -98,3 +88,4 @@ public class BasicAccount {
 	
 
 }
+
